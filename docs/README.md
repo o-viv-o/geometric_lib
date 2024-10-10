@@ -199,9 +199,9 @@
 | Thu Oct 10 23:34:03 2024 +0300 | 7a2ad61 | Viktoria Obukhova | Added documentation to triangle.py  |
 | Thu Oct 10 23:32:39 2024 +0300 | 63d42af | Viktoria Obukhova | Added documentation to circle.py    |
 | Thu Oct 10 23:32:18 2024 +0300 | 9021dd5 | Viktoria Obukhova | Added documentation to square.py    |
-| Tue Mar 30 18:02:23 2021 +0300 | b5b0fae | smartiqa |L-04: Update docs for calculate.py            |
-| Thu Mar 4 14:55:29 2021 +0300  | d76db2a | smartiqa |L-04: Add calculate.py                        |
-| Fri Mar 26 14:52:26 2021 +0300 | 51c40eb | smartiqa |L-04: Doc updated for triangle                |
-| Fri Mar 26 14:48:39 2021 +0300 | d080c78 | smartiqa |L-04: Triangle added                          |
-| Thu Mar 4 14:55:29 2021 +0300  | d078c8d | smartiqa |L-03: Docs added                              |
-| Thu Mar 4 14:54:08 2021 +0300  | 8ba9aeb | smartiqa |L-03: Circle and square added                 |
+| Tue Mar 30 18:02:23 2021 +0300 | b5b0fae | smartiqa          |L-04: Update docs for calculate.py   |
+| Thu Mar 4 14:55:29 2021 +0300  | d76db2a | smartiqa          |L-04: Add calculate.py               |
+| Fri Mar 26 14:52:26 2021 +0300 | 51c40eb | smartiqa          |L-04: Doc updated for triangle       |
+| Fri Mar 26 14:48:39 2021 +0300 | d080c78 | smartiqa          |L-04: Triangle added                 |
+| Thu Mar 4 14:55:29 2021 +0300  | d078c8d | smartiqa          |L-03: Docs added                     |
+| Thu Mar 4 14:54:08 2021 +0300  | 8ba9aeb | smartiqa          |L-03: Circle and square added        |
