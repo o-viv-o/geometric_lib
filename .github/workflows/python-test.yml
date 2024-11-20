@@ -47,7 +47,3 @@ jobs:
       - name: Run tests with pytest
         run: |
           pytest
-
-      - name: Format code (optional)
-        run: black .
-        if: ${{ failure() }}
