@@ -39,13 +39,14 @@ jobs:
           python-version: '3.13'
 
       - name: Install dependencies
-        run: pip3 install -r requirements.txt
+        run: pip3 install -r requirements.txе
 
-      - name: Run tests
-        run: python3 -m unittest discover tests -v
-
-      - name: Check code style
-        run: black --check .
+      - name: Lint with flake8
+        run: |
+          flake8 calculate.py circle.py square.py triangle.py tests/
+      - name: Run tests with pytest
+        run: |
+          pytest
 
       - name: Format code (optional)
         run: black .
