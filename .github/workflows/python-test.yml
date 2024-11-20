@@ -46,7 +46,3 @@ jobs:
 
       - name: Check code style
         run: black --check .
-
-      - name: Format code (optional)
-        run: black .
-        if: ${{ failure() }}
