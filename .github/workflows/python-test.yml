@@ -42,7 +42,7 @@ jobs:
         run: pip3 install -r requirements.txt
 
       - name: Run tests
-        run: python3 -m unittest discover moduleTests
+        run: python3 -m unittest discover tests
 
       - name: Check code style
         run: black --check .
