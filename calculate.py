@@ -1,6 +1,6 @@
 import circle
-import triangle
 import square
+import triangle
 
 figs = ["circle", "square", "triangle"]
 funcs = ["perimeter", "area"]
@@ -15,21 +15,21 @@ sizes = {
 
 
 def calc(fig, func, size):
-    assert fig in figs
-    assert func in funcs
+    assert fig in figs, f"Figure '{fig}' not recognized. Available figures: {figs}"
+    assert func in funcs, f"Function '{func}' not recognized. Available functions: {funcs}"
 
     result = eval(f"{fig}.{func}(*{size})")
     return result
 
 
-if __name__ == "__main__":
+def main():
     tmp1 = square.area(4)
     tmp2 = triangle.area(2, 3, 4)
     tmp3 = circle.area(6)
 
     func = ""
     fig = ""
-    size = list()
+    size = []
 
     while fig not in figs:
         fig = input(f"Enter figure name, available are {figs}:\n")
@@ -39,27 +39,13 @@ if __name__ == "__main__":
 
     if fig == "circle" or fig == "square":
         while len(size) != sizes.get(f"{func}-{fig}", 1):
-            size = list(
-                map(
-                    int,
-                    input(
-                        "Input figure sizes separated by space, 1 for circle and square. Sizes need to be > 0\n"
-                    ).split(" "),
-                )
-            )
+            size = list(map (int, input("Input figure sizes separated by space, 1 for circle and square. Sizes need to be > 0\n").split(" "), ))
     else:
         while len(size) != sizes.get(f"{func}-{fig}", 3):
-            size = list(
-                map(
-                    int,
-                    input(
-                        "Input figure sizes separated by space, 1 for circle and square. Sizes need to be > 0\n"
-                    ).split(" "),
-                )
-            )
-
+            size = list(map(int, input("Input figure sizes separated by space, 1 for circle and square. Sizes need to be > 0\n").split(" "),))
     res = calc(fig, func, size)
     print(res)
 
 
-
+if __name__ == "__main__":
+    main()
