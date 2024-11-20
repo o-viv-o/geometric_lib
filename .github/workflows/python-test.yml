@@ -39,7 +39,7 @@ jobs:
           python-version: '3.13'
 
       - name: Install dependencies
-        run: pip3 install -r requirements.txе
+        run: pip3 install -r requirements.txt
 
       - name: Lint with flake8
         run: |
