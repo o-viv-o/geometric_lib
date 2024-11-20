@@ -1,33 +1,112 @@
-import circle
+import unittest
+from math import pi
+
+import triangle
 import square
+import circle
+
+from calculate import calc
+
+class TestCalcPerimeter(unittest.TestCase):
+    def test_calc_circle_perimeter(self):
+        # Arrange
+        fig = "circle"
+        func = "perimeter"
+        size = [3]
+        expected_result = 2 * pi * 3
+
+        # Ac
+        result = calc(fig, func, size)
+
+        # Assert
+        self.assertEqual(result, expected_result)
+
+    def test_calc_square_perimeter(self):
+        fig = "square"
+        func = "perimeter"
+        size = [3]
+        expected_result = 12
+
+        result = calc(fig, func, size)
+
+        self.assertEqual(result, expected_result)
+
+    def test_calc_triangle_perimeter(self):
+        fig = "triangle"
+        func = "perimeter"
+        size = [10, 12, 15]
+        expected_result = 37
+
+        result = calc(fig, func, size)
+
+        self.assertEqual(result, expected_result)
 
 
-figs = ['circle', 'square']
-funcs = ['perimeter', 'area']
-sizes = {}
+class TestCalcArea(unittest.TestCase):
+    def test_calc_circle_area(self):
+        fig = "circle"
+        func = "area"
+        size = [5]
+        expected_result = 5 * 5 * pi
 
-def calc(fig, func, size):
-	assert fig in figs
-	assert func in funcs
+        result = calc(fig, func, size)
 
-	result = eval(f'{fig}.{func}(*{size})')
-	print(f'{func} of {fig} is {result}')
+        self.assertEqual(result, expected_result)
 
-if __name__ == "__main__":
-	func = ''
-	fig = ''
-	size = list()
-    
-	while fig not in figs:
-		fig = input(f"Enter figure name, avaliable are {figs}:\n")
-	
-	while func not in funcs:
-		func = input(f"Enter function name, avaliable are {funcs}:\n")
-	
-	while len(size) != sizes.get(f"{func}-{fig}", 1):
-		size = list(map(int, input("Input figure sizes separated by space, 1 for circle and square\n").split(' ')))
-	
-	calc(fig, func, size)
+    def test_calc_square_area(self):
+        fig = "square"
+        func = "area"
+        size = [10]
+        expected_result = 100
+
+        result = calc(fig, func, size)
+
+        self.assertEqual(result, expected_result)
+
+    def test_calc_triangle_area(self):
+        fig = "triangle"
+        func = "area"
+        size = [9, 12, 15]
+        expected_result = 18
+
+        result = calc(fig, func, size)
+
+        self.assertEqual(result, expected_result)
+
+
+class TestCalcIntegerNegative(unittest.TestCase):
+    def test_calc_values_triangle(self):
+        fig = "triangle"
+        func = "area"
+        size = [-3, 4, 5]
+        expected_result = "Size must be greater than zero."
+
+        with self.assertRaises(ValueError) as context:
+            calc(fig, func, size)
+
+        self.assertEqual(str(context.exception), expected_result)
+
+    def test_calc_values_circle(self):
+        fig = "circle"
+        func = "area"
+        size = [-1]
+        expected_result = "Radius must be greater than zero."
+
+        with self.assertRaises(ValueError) as context:
+            calc(fig, func, size)
+
+        self.assertEqual(str(context.exception), expected_result)
+
+    def test_calc_values_square(self):
+        fig = "square"
+        func = "area"
+        size = [-6]
+        expected_result = "Size must be greater than zero."
+
+        with self.assertRaises(ValueError) as context:
+            calc(fig, func, size)
+
+        self.assertEqual(str(context.exception), expected_result)
 
 
 
