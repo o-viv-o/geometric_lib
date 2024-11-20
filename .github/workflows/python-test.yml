@@ -26,20 +26,23 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
         with:
-          ref: feat/tests 
-          
+          ref: feat/tests
+
       - name: Print Info
         run: |
           echo "Full name: ${{ env.STUDENT_NAME }}"
           echo "Group: ${{ env.GROUP_NUMBER }}"
           echo "Nickname on Github: ${{ github.actor }}"
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.13'
 
       - name: Install dependencies
-        run: pip3 install -r requirements.txt
+        run: |
+          pip3 install -r requirements.txt
+          pip3 install black
 
       - name: Check code style
         run: black --check .
