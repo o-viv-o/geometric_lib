@@ -1,47 +1,51 @@
+from circle import area as circle_area, perimeter as circle_perimeter
+from square import area as square_area, perimeter as square_perimeter
 
-figs = ["circle", "square", "triangle"]
-funcs = ["perimeter", "area"]
-sizes = {
-    "perimeter-circle": 1,
-    "area-circle": 1,
-    "perimeter-square": 1,
-    "area-square": 1,
-    "perimeter-triangle": 3,
-    "area-triangle": 3,
+figs = {
+    'circle': {
+        'area': circle_area,
+        'perimeter': circle_perimeter,
+    },
+    'square': {
+        'area': square_area,
+        'perimeter': square_perimeter,
+    }
 }
 
 
 def calc(fig, func, size):
-    
-    assert fig in figs
-    
-    assert func in funcs
-    
-    result = eval(f"{fig}.{func}(*{size})")
+    assert fig in figs, "Invalid figure"
+    assert func in figs[fig], "Invalid function"
+    assert all(s > 0 for s in size), "All dimensions must be positive"
+
+    result = figs[fig][func](*size)
     return result
 
-if __name__ == "__main__":  
 
-    
-    func = ""
-    fig = ""
-    size = list()
+if __name__ == "__main__":
+    func = ''
+    fig = ''
+    size = []
 
-    
     while fig not in figs:
-        fig = input("Enter figure name : " + ", ".join(figs) + ": \n")
+        fig = input(
+            f"Enter figure name, available are {list(figs.keys())}:\n"
+        )
 
-    while func not in funcs:
-        func = input("Enter function name : " + ", ".join(funcs) + ": \n")
+    while func not in figs[fig]:
+        func = input(
+            f"Enter function name, available are {list(figs[fig].keys())}:\n"
+        )
 
-    if fig == "circle" or fig == "square":
-        while len(size) != sizes.get(f"{func}-{fig}", 1):
-            size_input = input("Input figure sizes separated by space.\n")
-            size = list(map(int, size_input.split(" ")))
-    else:
-        while len(size) != sizes.get(f"{func}-{fig}", 3):
-            size_input = input("Input figure sizes separated by space.\n")
-            size = list(map(int, size_input.split(" ")))
+    expected_size_count = 1 if fig == "circle" else 1
+    while len(size) != expected_size_count:
+        size = list(
+            map(
+                int,
+                input(
+                    f"Input {expected_size_count} size(s) separated by space\n"
+                ).split(),
+            )
+        )
 
-    res = calc(fig, func, size)
-    print(res)
+    print(calc(fig, func, size))
