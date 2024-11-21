@@ -23,47 +23,26 @@ def calc(fig, func, size):
     return result
 
 
-if __name__ == "__main__": 
-    tmp1 = square.area(4)
-    tmp2 = triangle.area(2, 3, 4)
-    tmp3 = circle.area(6)
-
+if __name__ == "__main__":  
     
     func = ""
     fig = ""
     size = list()
 
-    
     while fig not in figs:
-        fig = input(f"Enter figure name, available are {figs}: \n")
+        fig = input("Enter figure name, available are: " + ", ".join(figs) + ": \n")
 
-    
     while func not in funcs:
-        func = input(f"Enter function name, available are {funcs}: \n")
+        func = input("Enter function name, available are: " + ", ".join(funcs) + ": \n")
 
-    
     if fig == "circle" or fig == "square":
         while len(size) != sizes.get(f"{func}-{fig}", 1):
-            size = list(
-                map(
-                    int,
-                    input(
-                        "Input figure sizes separated by space.\n"
-                        "Sizes need to be > 0\n"
-                    ).split(" "),
-                )
-            )
+            size_input = input("Input figure sizes separated by space.Sizes need to be > 0\n")
+            size = list(map(int, size_input.split(" ")))
     else:
         while len(size) != sizes.get(f"{func}-{fig}", 3):
-            size = list(
-                map(
-                    int,
-                    input(
-                        "Input figure sizes separated by space.\n"
-                        "Sizes need to be > 0\n"
-                    ).split(" "),
-                )
-            )
+            size_input = input("Input figure sizes separated by space.Sizes need to be > 0\n")
+            size = list(map(int, size_input.split(" ")))
 
     res = calc(fig, func, size)
     print(res)
