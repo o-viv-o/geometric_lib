@@ -44,7 +44,8 @@ if __name__ == "__main__":
                 map(
                     int,
                     input(
-                        "Input figure sizes separated by space. Sizes need to be > 0\n"
+                        "Input figure sizes separated by space. 
+                        Sizes need to be > 0\n"
                     ).split(" "),
                 )
             )
@@ -54,7 +55,8 @@ if __name__ == "__main__":
                 map(
                     int,
                     input(
-                        "Input figure sizes separated by space. Sizes need to be > 0\n"
+                        "Input figure sizes separated by space. 
+                        Sizes need to be > 0\n"
                     ).split(" "),
                 )
             )
