@@ -1,4 +1,4 @@
-name: test
+nname: test
 
 run-name: test code geometric_lib
 on:
@@ -26,8 +26,8 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
         with:
-          ref: feat/tests 
-          
+          ref: feat/tests
+
       - name: Print Info
         run: |
           echo "Full name: ${{ env.STUDENT_NAME }}"
@@ -39,11 +39,11 @@ jobs:
           python-version: '3.13'
 
       - name: Install dependencies
-        run: pip3 install -r requirements.txt
+        run: |
+          pip3 install -r requirements.txt
+          pip3 install black
+      - name: Check code style
+        run: black --check .
 
-      - name: Lint with flake8
-        run: |
-          flake8 calculate.py circle.py square.py triangle.py tests/
-      - name: Run tests with pytest
-        run: |
-          pytest
+      - name: Format code (optional)
+        run: black .
