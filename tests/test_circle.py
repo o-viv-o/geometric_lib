@@ -3,11 +3,9 @@ import calculate
 
 from circle import area, perimeter
 
-class TestCircle(unittest.TestCase):
 
-    '''
-    Area tests
-    '''
+class TestCircle(unittest.TestCase):
+    """Area tests."""
 
     def test_area_zero(self):
         res_area_zero = calculate.calc("circle", "area", [0])
@@ -26,9 +24,7 @@ class TestCircle(unittest.TestCase):
             calculate.calc("circle", "area", [-6])
         self.assertEqual(str(context.exception), "Radius must be greater than zero.")
 
-    '''
-    Perimeter tests
-    '''
+    """Perimeter tests."""
 
     def test_perimeter_zero(self):
         res_perimeter_zero = calculate.calc("circle", "perimeter", [0])
@@ -47,13 +43,6 @@ class TestCircle(unittest.TestCase):
             calculate.calc("circle", "perimeter", [-6])
         self.assertEqual(str(context.exception), "Radius must be greater than zero.")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()
-
-
-
-
-
-
-
-
