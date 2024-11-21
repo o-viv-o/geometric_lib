@@ -1,11 +1,7 @@
 import unittest
 from math import pi
-
-import triangle
-import square
-import circle
-
 from calculate import calc
+
 
 class TestCalcPerimeter(unittest.TestCase):
     def test_calc_circle_perimeter(self):
@@ -15,7 +11,7 @@ class TestCalcPerimeter(unittest.TestCase):
         size = [3]
         expected_result = 2 * pi * 3
 
-        # Ac
+        # Act
         result = calc(fig, func, size)
 
         # Assert
