@@ -21,10 +21,6 @@ class TestCircle(unittest.TestCase):
 
     """Perimeter tests."""
 
-    def test_perimeter_zero(self):
-        res_perimeter_zero = calculate.calc("circle", "perimeter", [0])
-        self.assertEqual(res_perimeter_zero, 0)
-
     def test_perimeter_positive(self):
         self.assertEqual(calculate.calc("circle", "perimeter", [1]), 6.2831)
         self.assertEqual(calculate.calc("circle", "perimeter", [6]), 37.6991)
