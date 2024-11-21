@@ -1,8 +1,3 @@
-import circle
-import triangle
-import square
-
-
 figs = ["circle", "square", "triangle"]
 funcs = ["perimeter", "area"]
 sizes = {
@@ -29,6 +24,7 @@ if __name__ == "__main__":
     fig = ""
     size = list()
 
+    
     while fig not in figs:
         fig = input("Enter figure name, available are: " + ", ".join(figs) + ": \n")
 
@@ -37,11 +33,11 @@ if __name__ == "__main__":
 
     if fig == "circle" or fig == "square":
         while len(size) != sizes.get(f"{func}-{fig}", 1):
-            size_input = input("Input figure sizes separated by space.Sizes need to be > 0\n")
+            size_input = input("Input figure sizes separated by space.\n")
             size = list(map(int, size_input.split(" ")))
     else:
         while len(size) != sizes.get(f"{func}-{fig}", 3):
-            size_input = input("Input figure sizes separated by space.Sizes need to be > 0\n")
+            size_input = input("Input figure sizes separated by space.\n")
             size = list(map(int, size_input.split(" ")))
 
     res = calc(fig, func, size)
