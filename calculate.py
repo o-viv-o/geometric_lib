@@ -29,12 +29,12 @@ if __name__ == "__main__":
 
     while fig not in figs:
         fig = input(
-            f"Enter figure name, available are {list(figs.keys())}:\n"
+            f"Enter figure name, available are {list(figs.keys())}: \n"
         )
 
     while func not in figs[fig]:
         func = input(
-            f"Enter function name, available are {list(figs[fig].keys())}:\n"
+            f"Enter function name, available are {list(figs[fig].keys())}: \n"
         )
 
     expected_size_count = 1 if fig == "circle" else 1
