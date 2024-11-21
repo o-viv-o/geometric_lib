@@ -1,8 +1,6 @@
 import unittest
 import calculate
 
-from circle import area, perimeter
-
 
 class TestCircle(unittest.TestCase):
     """Area tests."""
@@ -18,11 +16,11 @@ class TestCircle(unittest.TestCase):
     def test_area_negative(self):
         with self.assertRaises(ValueError) as context:
             calculate.calc("circle", "area", [-1])
-        self.assertEqual(str(context.exception), "Radius must be greater than zero.")
+        self.assertEqual(str(context.exception), "Radius must be > 0.")
 
         with self.assertRaises(ValueError) as context:
             calculate.calc("circle", "area", [-6])
-        self.assertEqual(str(context.exception), "Radius must be greater than zero.")
+        self.assertEqual(str(context.exception), "Radius must be > 0.")
 
     """Perimeter tests."""
 
@@ -37,11 +35,11 @@ class TestCircle(unittest.TestCase):
     def test_perimeter_negative(self):
         with self.assertRaises(ValueError) as context:
             calculate.calc("circle", "perimeter", [-1])
-        self.assertEqual(str(context.exception), "Radius must be greater than zero.")
+        self.assertEqual(str(context.exception), "Radius must be > 0.")
 
         with self.assertRaises(ValueError) as context:
             calculate.calc("circle", "perimeter", [-6])
-        self.assertEqual(str(context.exception), "Radius must be greater than zero.")
+        self.assertEqual(str(context.exception), "Radius must be > 0.")
 
 
 if __name__ == "__main__":
