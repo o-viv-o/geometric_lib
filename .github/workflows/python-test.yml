@@ -43,11 +43,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Install black
-        run: pip install black
+      - name: Install flake8
+        run: pip install flake8
 
-      - name: Check code style
-        run: black --check .
+      - name: Check code style with flake8
+        run: flake8 .
         
       - name: Run tests
         run: python3 -m unittest discover tests
