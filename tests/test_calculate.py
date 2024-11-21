@@ -75,7 +75,7 @@ class TestCalcIntegerNegative(unittest.TestCase):
         fig = "triangle"
         func = "area"
         size = [-3, 4, 5]
-        expected_result = "Size must be greater than zero."
+        expected_result = "Size must be > 0."
 
         with self.assertRaises(ValueError) as context:
             calc(fig, func, size)
@@ -86,7 +86,7 @@ class TestCalcIntegerNegative(unittest.TestCase):
         fig = "circle"
         func = "area"
         size = [-1]
-        expected_result = "Radius must be greater than zero."
+        expected_result = "Radius must be > 0."
 
         with self.assertRaises(ValueError) as context:
             calc(fig, func, size)
@@ -97,7 +97,7 @@ class TestCalcIntegerNegative(unittest.TestCase):
         fig = "square"
         func = "area"
         size = [-6]
-        expected_result = "Size must be greater than zero."
+        expected_result = "Size must be > 0."
 
         with self.assertRaises(ValueError) as context:
             calc(fig, func, size)
