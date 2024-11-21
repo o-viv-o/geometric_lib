@@ -2,7 +2,6 @@ import circle
 import triangle
 import square
 
-
 figs = ["circle", "square", "triangle"]
 funcs = ["perimeter", "area"]
 sizes = {
@@ -14,7 +13,6 @@ sizes = {
     "area-triangle": 3,
 }
 
-
 def calc(fig, func, size):
     assert fig in figs
     assert func in funcs
@@ -22,18 +20,15 @@ def calc(fig, func, size):
     result = eval(f"{fig}.{func}(*{size})")
     return result
 
-
 if __name__ == "__main__":
     tmp1 = square.area(4)
     tmp2 = triangle.area(2, 3, 4)
     tmp3 = circle.area(6)
 
-    
     func = ""
     fig = ""
     size = list()
 
-    
     while fig not in figs:
         fig = input(f"Enter figure name, available are {figs}:\n")
 
@@ -46,7 +41,7 @@ if __name__ == "__main__":
                 map(
                     int,
                     input(
-                        "Input figure sizes separated by space. Sizes need to be > 0\n"
+                        "Input figure sizes separated by space, 1 for circle and square. Sizes need to be > 0\n"
                     ).split(" "),
                 )
             )
@@ -56,7 +51,7 @@ if __name__ == "__main__":
                 map(
                     int,
                     input(
-                        "Input figure sizes separated by space. Sizes need to be > 0\n"
+                        "Input figure sizes separated by space, 1 for circle and square. Sizes need to be > 0\n"
                     ).split(" "),
                 )
             )
