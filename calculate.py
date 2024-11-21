@@ -37,6 +37,6 @@ if __name__ == "__main__":
 
     while len(size) != sizes.get(f"{func}-{fig}", 1):
         size = list(map(int, input("Input figure sizes"
-        "separated by space.\n").split(' ')))
+                                   "separated by space.\n").split(' ')))
 
     print(calc(fig, func, size))
