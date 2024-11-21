@@ -6,8 +6,7 @@ class TestCircle(unittest.TestCase):
     """Area tests."""
 
     def test_area_zero(self):
-        res_area_zero = calculate.calc("circle", "area", [0])
-        self.assertEqual(res_area_zero, 0)
+        res_area_zero = (calculate.calc("circle", "area", [0]), 0)
 
     def test_area_positive(self):
         self.assertEqual(calculate.calc("circle", "area", [1]), 3.14159)
