@@ -2,7 +2,6 @@ import unittest
 from math import pi
 from calculate import calc
 
-
 class TestCalcPerimeter(unittest.TestCase):
     def test_calc_circle_perimeter(self):
         # Arrange
@@ -11,7 +10,7 @@ class TestCalcPerimeter(unittest.TestCase):
         size = [3]
         expected_result = 2 * pi * 3
 
-        # Act
+        # Ac
         result = calc(fig, func, size)
 
         # Assert
@@ -104,6 +103,3 @@ class TestCalcIntegerNegative(unittest.TestCase):
 
         self.assertEqual(str(context.exception), expected_result)
 
-
-if __name__ == "__main__":
-    unittest.main()
