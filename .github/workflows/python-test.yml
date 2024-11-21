@@ -1,6 +1,7 @@
-name: test
+name: Test
 
-run-name: test code geometric_lib
+run-name: Test Code Geometric Library
+
 on:
   push:
     branches:
@@ -32,23 +33,21 @@ jobs:
         run: |
           echo "Full name: ${{ env.STUDENT_NAME }}"
           echo "Group: ${{ env.GROUP_NUMBER }}"
-          echo "Nickname on Github: ${{ github.actor }}"
+          echo "Nickname on GitHub: ${{ github.actor }}"
+          
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.13'
 
       - name: Install dependencies
-        run: pip3 install -r requirements.txt
+        run: pip install -r requirements.txt
 
-      - name: Install dependencies
-        run: |
-          pip3 install -r requirements.txt
-          pip3 install ruff
+      - name: Install ruff
+        run: pip install ruff
 
       - name: Check code style
         run: ruff --check .
 
       - name: Format code (optional)
-        run: ruff --fix .
-      
+        run: ruff --fix
