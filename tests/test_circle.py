@@ -30,8 +30,8 @@ class TestCircle(unittest.TestCase):
         self.assertEqual(res_perimeter_zero, 0)
 
     def test_perimeter_positive(self):
-        self.assertEqual(calculate.calc("circle", "perimeter", [1]), 6.28318)
-        self.assertEqual(calculate.calc("circle", "perimeter", [6]), 37.6991)
+        self.assertEqual(calculate.calc("circle", "perimeter", [1]), 6.283185307179586)
+        self.assertEqual(calculate.calc("circle", "perimeter", [6]), 37.699111843077516)
 
     def test_perimeter_negative(self):
         error_message = "Radius must be > 0."
