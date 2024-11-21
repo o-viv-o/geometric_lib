@@ -33,16 +33,11 @@ def main():
     while func not in funcs:
         func = input(f"Enter function name, available are {funcs}: \n")
 
-    if fig == "circle" or fig == "square":
-        while len(size) != sizes.get(f"{func}-{fig}", 1):
-            size = list(
-                map(int, input("Input figure sizes separated by space.\n").split(" "))
-            )
-    else:
-        while len(size) != sizes.get(f"{func}-{fig}", 3):
-            size = list(
-                map(int, input("Input figure sizes separated by space.\n").split(" "))
-            )
+    size_length = sizes.get(f"{func}-{fig}", 1)
+    while len(size) != size_length:
+        size = list(
+            map(int, input("Input figure sizes separated by space.\n").split(" "))
+        )
 
     res = calc(fig, func, size)
     print(res)
@@ -50,4 +45,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
