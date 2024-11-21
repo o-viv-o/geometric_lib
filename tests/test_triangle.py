@@ -3,15 +3,14 @@ import calculate
 
 from triangle import area, perimeter
 
-class TestTriangle(unittest.TestCase):
 
-    '''
-    Area tests
-    '''
+class TestTriangle(unittest.TestCase):
+    """Area tests."""
 
     def test_area_zero(self):
         res_area_zero = calculate.calc("triangle", "area", [0, 0, 0])
         self.assertEqual(res_area_zero, 0)
+
     def test_area_positive(self):
         res_area_1_pos = calculate.calc("triangle", "area", [1, 1, 1])
         self.assertEqual(res_area_1_pos, 1.5)
@@ -28,10 +27,7 @@ class TestTriangle(unittest.TestCase):
             calculate.calc("triangle", "area", [-6, -6, -6])
         self.assertEqual(str(context.exception), "Size must be greater than zero.")
 
-
-    '''
-    Perimeter tests
-    '''
+    """Perimeter tests."""
 
     def test_perimeter_zero(self):
         res_perimeter_zero = calculate.calc("triangle", "perimeter", [0, 0, 0])
@@ -54,3 +50,5 @@ class TestTriangle(unittest.TestCase):
         self.assertEqual(str(context.exception), "Size must be greater than zero.")
 
 
+if __name__ == "__main__":
+    unittest.main()
