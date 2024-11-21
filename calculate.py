@@ -1,5 +1,10 @@
+"""Модуль с тестами для функций расчетов."""
+
+from calculate import calc  
+
 figs = ["circle", "square", "triangle"]
 funcs = ["perimeter", "area"]
+
 sizes = {
     "perimeter-circle": 1,
     "area-circle": 1,
@@ -10,36 +15,36 @@ sizes = {
 }
 
 
-def calc(fig: str, func: str, size: list) -> float:
-    assert fig in figs, (
-        f"Figure '{fig}' not recognized. Available figures: {figs}"
-    )
-    assert func in funcs, (
-        f"Function '{func}' not recognized. Available functions: {funcs}"
-    )
-
-    result = eval(f"{fig}.{func}(*{size})")
-    return result
+def test_calc_circle_area():
+    """Тест для вычисления площади круга."""
+    assert calc("circle", "area", [1]) == 3.14 
 
 
-def main() -> None:
-    func = ""
-    fig = ""
-    size = []
+def test_calc_circle_perimeter():
+    """Тест для вычисления периметра круга."""
+    assert calc("circle", "perimeter", [1]) == 6.28  
 
-    while fig not in figs:
-        fig = input(f"Enter figure name, available are {figs}:\n")
 
-    while func not in funcs:
-        func = input(f"Enter function name, available are {funcs}:\n")
+def test_calc_square_area():
+    """Тест для вычисления площади квадрата."""
+    assert calc("square", "area", [1]) == 1 
 
-    size_length = sizes[f"{func}-{fig}"]
-    while len(size) != size_length:
-        size = list(map(int, input("Input figure sizes separated by space:\n").split()))
 
-    res = calc(fig, func, size)
-    print(res)
+def test_calc_square_perimeter():
+    """Тест для вычисления периметра квадрата."""
+    assert calc("square", "perimeter", [1]) == 4  
+
+
+def test_calc_triangle_area():
+    """Тест для вычисления площади треугольника."""
+    assert calc("triangle", "area", [3]) == 4.5  
+
+
+def test_calc_triangle_perimeter():
+    """Тест для вычисления периметра треугольника."""
+    assert calc("triangle", "perimeter", [3]) == 9  
 
 
 if __name__ == "__main__":
-    main()
+    import pytest
+    pytest.main()
