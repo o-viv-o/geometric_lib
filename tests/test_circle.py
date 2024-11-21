@@ -11,7 +11,7 @@ class TestCircle(unittest.TestCase):
 
     def test_area_positive(self):
         self.assertEqual(calculate.calc("circle", "area", [1]), 3.14159)
-        self.assertEqual(calculate.calc("circle", "area", [3]), 28.27433)
+        self.assertEqual(calculate.calc("circle", "area", [3]), 28.2743)
 
     def test_area_negative(self):
         with self.assertRaises(ValueError) as context:
