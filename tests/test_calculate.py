@@ -2,6 +2,7 @@ import unittest
 from math import pi
 from calculate import calc
 
+
 class TestCalcPerimeter(unittest.TestCase):
     def test_calc_circle_perimeter(self):
         # Arrange
@@ -102,4 +103,3 @@ class TestCalcIntegerNegative(unittest.TestCase):
             calc(fig, func, size)
 
         self.assertEqual(str(context.exception), expected_result)
-
