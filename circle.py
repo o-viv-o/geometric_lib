@@ -12,4 +12,4 @@ def perimeter(r):
     if r >= 0:
         return 2 * math.pi * r
     else:
-        raise ValueError("Radius must be  > 0.")
+        raise ValueError("Radius must be > 0.")
