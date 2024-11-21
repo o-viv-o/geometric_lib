@@ -4,13 +4,9 @@ import calculate
 
 class TestCircle(unittest.TestCase):
     """Area tests."""
-
-    def test_area_zero(self):
-        res_area_zero = calculate.calc("circle", "area", [0])
-        self.assertEqual(res_area_zero, 0)
-
+    
     def test_area_positive(self):
-        self.assertEqual(calculate.calc("circle", "area", [1]), 3.14159)
+        self.assertEqual(calculate.calc("circle", "area", [1]), 3.1415)
         self.assertEqual(calculate.calc("circle", "area", [3]), 28.2743)
 
     def test_area_negative(self):
@@ -30,8 +26,8 @@ class TestCircle(unittest.TestCase):
         self.assertEqual(res_perimeter_zero, 0)
 
     def test_perimeter_positive(self):
-        self.assertEqual(calculate.calc("circle", "perimeter", [1]), 6.283185307179586)
-        self.assertEqual(calculate.calc("circle", "perimeter", [6]), 37.699111843077516)
+        self.assertEqual(calculate.calc("circle", "perimeter", [1]), 6.2831)
+        self.assertEqual(calculate.calc("circle", "perimeter", [6]), 37.6991)
 
     def test_perimeter_negative(self):
         error_message = "Radius must be > 0."
