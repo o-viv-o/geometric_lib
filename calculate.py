@@ -20,15 +20,18 @@ def calc(fig, func, size):
 
 
 if __name__ == "__main__":  
+
     
     func = ""
     fig = ""
     size = list()
+
+    
     while fig not in figs:
-        fig = input("Enter figure name, available : " + ", ".join(figs) + ": \n")
+        fig = input("Enter figure name : " + ", ".join(figs) + ": \n")
 
     while func not in funcs:
-        func = input("Enter function name, available : " + ", ".join(funcs) + ": \n")
+        func = input("Enter function name : " + ", ".join(funcs) + ": \n")
 
     if fig == "circle" or fig == "square":
         while len(size) != sizes.get(f"{func}-{fig}", 1):
