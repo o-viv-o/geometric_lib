@@ -33,6 +33,7 @@ jobs:
           echo "Full name: ${{ env.STUDENT_NAME }}"
           echo "Group: ${{ env.GROUP_NUMBER }}"
           echo "Nickname on Github: ${{ github.actor }}"
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -40,10 +41,9 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip3 install -r requirements.txt
-          pip3 install black
-      - name: Check code style
-        run: black --check .
+          pip install -r requirements.txt
 
-      - name: Format code (optional)
-        run: black .
+      - name: Run Pylint
+        run: |
+          pip install pylint
+          pylint **/*.py
