@@ -1,4 +1,3 @@
-
 figs = ["circle", "square", "triangle"]
 funcs = ["perimeter", "area"]
 sizes = {
@@ -11,34 +10,32 @@ sizes = {
 }
 
 
-def calc(fig, func, size):
+def calc(fig: str, func: str, size: list) -> float:
     assert fig in figs, (
-        "Figure '{}' not recognized. Available figures: {}".format(fig, figs)
+        f"Figure '{fig}' not recognized. Available figures: {figs}"
     )
     assert func in funcs, (
-        "Function '{}' not recognized. Available functions: {}".format(func, funcs)
+        f"Function '{func}' not recognized. Available functions: {funcs}"
     )
 
-    result = eval("{}.{}(*{})".format(fig, func, size))
+    result = eval(f"{fig}.{func}(*{size})")
     return result
 
 
-def main():
+def main() -> None:
     func = ""
     fig = ""
     size = []
 
     while fig not in figs:
-        fig = input("Enter figure name, available are {}:\n".format(figs))
+        fig = input(f"Enter figure name, available are {figs}:\n")
 
     while func not in funcs:
-        func = input("Enter function name, available are {}:\n".format(funcs))
+        func = input(f"Enter function name, available are {funcs}:\n")
 
-    size_length = sizes.get("{}-{}".format(func, fig), 1)
+    size_length = sizes[f"{func}-{fig}"]
     while len(size) != size_length:
-        size = list(
-            map(int, input("Input figure sizes separated by space:\n").split())
-        )
+        size = list(map(int, input("Input figure sizes separated by space:\n").split()))
 
     res = calc(fig, func, size)
     print(res)
