@@ -1,8 +1,6 @@
 import unittest
 import calculate
 
-from triangle import area, perimeter
-
 
 class TestTriangle(unittest.TestCase):
     """Area tests."""
@@ -21,11 +19,11 @@ class TestTriangle(unittest.TestCase):
     def test_area_negative(self):
         with self.assertRaises(ValueError) as context:
             calculate.calc("triangle", "area", [-1, -1, -1])
-        self.assertEqual(str(context.exception), "Size must be greater than zero.")
+        self.assertEqual(str(context.exception), "Size must be > 0.")
 
         with self.assertRaises(ValueError) as context:
             calculate.calc("triangle", "area", [-6, -6, -6])
-        self.assertEqual(str(context.exception), "Size must be greater than zero.")
+        self.assertEqual(str(context.exception), "Size must be > 0.")
 
     """Perimeter tests."""
 
@@ -43,11 +41,11 @@ class TestTriangle(unittest.TestCase):
     def test_perimeter_negative(self):
         with self.assertRaises(ValueError) as context:
             calculate.calc("triangle", "perimeter", [-1, -1, -1])
-        self.assertEqual(str(context.exception), "Size must be greater than zero.")
+        self.assertEqual(str(context.exception), "Size must be > 0.")
 
         with self.assertRaises(ValueError) as context:
             calculate.calc("triangle", "perimeter", [-6, -6, -6])
-        self.assertEqual(str(context.exception), "Size must be greater than zero.")
+        self.assertEqual(str(context.exception), "Size must be > 0.")
 
 
 if __name__ == "__main__":
