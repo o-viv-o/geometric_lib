@@ -28,15 +28,15 @@ def main():
     size = []
 
     while fig not in figs:
-        fig = input(f"Enter figure name, available are {figs}: \n")
+        fig = input(f"Enter figure name, available are {figs}:\n")
 
     while func not in funcs:
-        func = input(f"Enter function name, available are {funcs}: \n")
+        func = input(f"Enter function name, available are {funcs}:\n")
 
     size_length = sizes.get(f"{func}-{fig}", 1)
     while len(size) != size_length:
         size = list(
-            map(int, input("Input figure sizes.\n").split(" "))
+            map(int, input("Input figure sizes separated by space:\n").split())
         )
 
     res = calc(fig, func, size)
