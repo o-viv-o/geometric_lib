@@ -1,10 +1,10 @@
-"""Модуль с тестами для функций расчетов."""
+import circle as circle
+import square as square
+import triangle as triangle
 
-from calculate import calc  
 
 figs = ["circle", "square", "triangle"]
 funcs = ["perimeter", "area"]
-
 sizes = {
     "perimeter-circle": 1,
     "area-circle": 1,
@@ -15,36 +15,42 @@ sizes = {
 }
 
 
-def test_calc_circle_area():
-    """Тест для вычисления площади круга."""
-    assert calc("circle", "area", [1]) == 3.14 
+def calc(fig, func, size):
+    assert fig in figs
+    assert func in funcs
 
+    if any(s <= 0 for s in size):
+        raise ValueError("Size need to be > 0")
 
-def test_calc_circle_perimeter():
-    """Тест для вычисления периметра круга."""
-    assert calc("circle", "perimeter", [1]) == 6.28  
+    expected_size = sizes.get(f"{func}-{fig}")
+    if len(size) != expected_size:
+        raise ValueError(
+            "Figure '{}' not recognized. Available figures: {}".format(fig, figs)
+        )
 
-
-def test_calc_square_area():
-    """Тест для вычисления площади квадрата."""
-    assert calc("square", "area", [1]) == 1 
-
-
-def test_calc_square_perimeter():
-    """Тест для вычисления периметра квадрата."""
-    assert calc("square", "perimeter", [1]) == 4  
-
-
-def test_calc_triangle_area():
-    """Тест для вычисления площади треугольника."""
-    assert calc("triangle", "area", [3]) == 4.5  
-
-
-def test_calc_triangle_perimeter():
-    """Тест для вычисления периметра треугольника."""
-    assert calc("triangle", "perimeter", [3]) == 9  
+    result = eval(f"{fig}.{func}(*{size})")
+    return result
 
 
 if __name__ == "__main__":
-    import pytest
-    pytest.main()
+    func = ""
+    fig = ""
+    size = list()
+
+    while fig not in figs:
+        fig = input(f"Enter figure name, avaliable are {figs}:\n")
+
+    while func not in funcs:
+        func = input(f"Enter function name, avaliable are {funcs}:\n")
+
+    while len(size) != sizes.get(f"{func}-{fig}", 1):
+        size = list(
+            map(
+                int,
+                input(
+                    "Input figure sizes separated by space\n"
+                ).split(" "),
+            )
+        )
+
+    calc(fig, func, size)
