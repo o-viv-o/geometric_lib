@@ -11,12 +11,13 @@ sizes = {
 
 
 def calc(fig, func, size):
-    assert fig in figs, f"Figure '{fig}' not recognized. 
-    Available figures: {figs}"
-    assert func in funcs, f"Function '{func}' not recognized. 
-    Available functions: {funcs}"
+    assert fig in figs, (
+        f"Figure '{fig}' not recognized. Available figures: {figs}"
+    )
+    assert func in funcs, (
+        f"Function '{func}' not recognized. Available functions: {funcs}"
+    )
 
-    
     result = eval(f"{fig}.{func}(*{size})")
     return result
 
@@ -26,7 +27,6 @@ def main():
     fig = ""
     size = []
 
-    
     while fig not in figs:
         fig = input(f"Enter figure name, available are {figs}: \n")
 
@@ -35,15 +35,19 @@ def main():
 
     if fig == "circle" or fig == "square":
         while len(size) != sizes.get(f"{func}-{fig}", 1):
-            size = list(map(int,input("Input figure sizes separated by space.\n").split(" "),))
+            size = list(
+                map(int, input("Input figure sizes separated by space.\n").split(" "))
+            )
     else:
         while len(size) != sizes.get(f"{func}-{fig}", 3):
-            size = list(map(int,input( "Input figure sizes separated by space.\n").split(" "),))
+            size = list(
+                map(int, input("Input figure sizes separated by space.\n").split(" "))
+            )
 
-    
     res = calc(fig, func, size)
     print(res)
 
 
 if __name__ == "__main__":
     main()
+
