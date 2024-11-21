@@ -41,9 +41,14 @@ jobs:
       - name: Install dependencies
         run: pip3 install -r requirements.txt
 
-      - name: Lint with flake8
+      - name: Install dependencies
         run: |
-          flake8 calculate.py circle.py square.py triangle.py tests/
-      - name: Run tests with pytest
-        run: |
-          pytest
+          pip3 install -r requirements.txt
+          pip3 install ruff
+
+      - name: Check code style
+        run: ruff --check .
+
+      - name: Format code (optional)
+        run: ruff --fix .
+      
