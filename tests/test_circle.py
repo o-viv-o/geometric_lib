@@ -3,8 +3,8 @@ import calculate
 
 
 class TestCircle(unittest.TestCase):
-    """Area tests."""
     
+    """Area tests."""
     def test_area_positive(self):
         self.assertEqual(calculate.calc("circle", "area", [1]), 
                          3.141592653589793)
@@ -22,7 +22,6 @@ class TestCircle(unittest.TestCase):
         self.assertEqual(str(context.exception), error_message)
 
     """Perimeter tests."""
-
     def test_perimeter_positive(self):
         self.assertEqual(calculate.calc("circle", "perimeter", [1]),
                          6.283185307179586)
