@@ -1,0 +1,50 @@
+name: Test
+
+run-name: Test Code Geometric Library
+
+on:
+  push:
+    branches:
+      - main
+      - release
+  pull_request:
+    branches:
+      - main
+      - develop
+      - release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      STUDENT_NAME: "Obuchova Viktoria Romanovna"
+      GROUP_NUMBER: "M3116"
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+        with:
+          ref: feat/tests 
+          
+      - name: Print Info
+        run: |
+          echo "Full name: ${{ env.STUDENT_NAME }}"
+          echo "Group: ${{ env.GROUP_NUMBER }}"
+          echo "Nickname on GitHub: ${{ github.actor }}"
+          
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install flake8
+        run: pip install flake8
+
+      - name: Run tests
+        run: python3 -m unittest discover tests
+
+      - name: Check code style with flake8
+        run: flake8 .
