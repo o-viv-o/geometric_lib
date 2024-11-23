@@ -9,7 +9,6 @@ on:
       - release
   pull_request:
     branches:
-      - feat/tests
       - main
       - develop
       - release
