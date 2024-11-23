@@ -8,11 +8,11 @@ on:
       - main
       - develop
       - feat/tests
-      - release/*
+      - release
   pull_request:
     branches:
       - master
-      - release/*
+      - release
       - develop
       - feat/tests
 
@@ -46,8 +46,8 @@ jobs:
       - name: Install flake8
         run: pip install flake8
 
-      - name: Check code style with flake8
-        run: flake8 .
-        
       - name: Run tests
         run: python3 -m unittest discover tests
+
+      - name: Check code style with flake8
+        run: flake8 .
